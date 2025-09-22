@@ -1,4 +1,16 @@
+// Service Worker registration for offline support and asset caching
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('ServiceWorker registration successful with scope:', registration.scope);
+      }, function(err) {
+        console.log('ServiceWorker registration failed:', err);
+      });
+  });
+}
 
+// ...rest of your index.js code...
 
 // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
